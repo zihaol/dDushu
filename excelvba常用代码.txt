@@ -1,0 +1,79 @@
+
+//复制列到最后一列
+Sub Copy_last_column_by_zzllrr()
+    Dim r, c
+    c = Cells(1, Columns.Count).End(xlToLeft).Column
+    r = Cells(Rows.Count+1, c).End(xlUp).Row
+    Range("MB1").Copy Range(Cells(1, c), Cells(r, c))
+End Sub
+
+
+Sub Copy_last_column_by_zzllrr()
+    Dim r, c
+    Dim target
+    
+    
+    target = "RA"
+    c = 230
+'    c = Cells(1, Columns.Count).End(xlToLeft).Column
+'    c = c + 1
+'    Columns(c).Insert
+'    Range (Cells(1, c), Cells(r, c) & i)
+    r = Cells(Rows.Count, c).End(xlUp).Row
+'    Range(Cells(1, target), Cells(r, target)).Copy Range(Cells(1, c), Cells(r, c))
+    Range(Cells(1, target), Cells(r, target)).Copy Range(Cells(1, c), Cells(r, c))
+End Sub
+
+
+
+Sub Copy_last_column_by_zzllrr()
+    Dim r, c
+    
+    
+    Dim target(9) As String
+    target(0) = "RB"
+    target(1) = "RC"
+    target(2) = "RD"
+    target(3) = "RE"
+    target(4) = "RF"
+    target(5) = "RG"
+    target(6) = "RH"
+    target(7) = "RI"
+    target(8) = "RJ"
+    target(9) = "RK"
+    c = 231
+    
+    r = Cells(Rows.Count, c).End(xlUp).Row
+    
+    For i = 0 To UBound(target)
+        Range(Cells(1, target(i)), Cells(r, target(i))).Copy Range(Cells(1, c), Cells(r, c))
+        c = c + 1
+    Next i
+    
+End Sub
+
+
+//读取文件
+Dim MyData As String
+ 
+'清除列表框控件中的数据项
+ListBox1.Clear
+ 
+'读取文件信息
+Open "C:\数据文件.txt" For Input As #1       '以读的方式打开文件
+MyStr = ""
+Do While Not EOF(1)   ' 循环至文件尾
+   '读取一行数据
+   Line Input #1, MyData
+   '把读取的数据添加到列表框控件
+   ListBox1.AddItem MyData
+Loop
+Close #1   ' 关闭文件。
+
+
+
+
+
+
+
+
